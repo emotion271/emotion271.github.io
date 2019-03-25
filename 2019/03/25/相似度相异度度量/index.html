@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="机器学习,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="相似度和相异度度量 欧式距离 欧氏距离（ Euclidean distance）是一个通常采用的距离定义，它是在m维空间中两个点之间的真实距离。 $d(x,y)=\sqrt{\sum_{k=1}^{n}(x_{k}-y_{k})^2}=\sqrt{(X-Y)^T*(X-Y)}$  闵可夫斯基距离 闵氏距离不是一种距离，而是一组距离的定义。是两个向量（点）的$r$阶距离。">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/03/24/hello-world/index.html">
+<meta property="og:title" content="相似度相异度度量">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/相似度相异度度量/index.html">
 <meta property="og:site_name" content="Emotion&#39;s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="相似度和相异度度量 欧式距离 欧氏距离（ Euclidean distance）是一个通常采用的距离定义，它是在m维空间中两个点之间的真实距离。 $d(x,y)=\sqrt{\sum_{k=1}^{n}(x_{k}-y_{k})^2}=\sqrt{(X-Y)^T*(X-Y)}$  闵可夫斯基距离 闵氏距离不是一种距离，而是一组距离的定义。是两个向量（点）的$r$阶距离。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-24T08:52:21.514Z">
+<meta property="og:updated_time" content="2019-03-25T14:00:31.195Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="相似度相异度度量">
+<meta name="twitter:description" content="相似度和相异度度量 欧式距离 欧氏距离（ Euclidean distance）是一个通常采用的距离定义，它是在m维空间中两个点之间的真实距离。 $d(x,y)=\sqrt{\sum_{k=1}^{n}(x_{k}-y_{k})^2}=\sqrt{(X-Y)^T*(X-Y)}$  闵可夫斯基距离 闵氏距离不是一种距离，而是一组距离的定义。是两个向量（点）的$r$阶距离。">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/24/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/25/相似度相异度度量/">
 
 
 
 
 
-  <title>Hello World | Emotion's blog</title>
+  <title>相似度相异度度量 | Emotion's blog</title>
   
 
 
@@ -242,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/相似度相异度度量/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qianlai Qiu">
@@ -259,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">相似度相异度度量</h1>
         
 
         <div class="post-meta">
@@ -271,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-24T16:52:21+08:00">
-                2019-03-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T21:59:13+08:00">
+                2019-03-25
               </time>
             
 
@@ -289,7 +290,7 @@
 
           
           
-             <span id="/2019/03/24/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+             <span id="/2019/03/25/相似度相异度度量/" class="leancloud_visitors" data-flag-title="相似度相异度度量">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -320,15 +321,45 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="相似度和相异度度量"><a href="#相似度和相异度度量" class="headerlink" title="相似度和相异度度量"></a>相似度和相异度度量</h1><ol>
+<li><p>欧式距离</p>
+<p>欧氏距离（ Euclidean distance）是一个通常采用的距离定义，它是在m维空间中两个点之间的真实距离。</p>
+<p>$d(x,y)=\sqrt{\sum_{k=1}^{n}(x_{k}-y_{k})^2}=\sqrt{(X-Y)^T*(X-Y)}$</p>
+</li>
+<li><p>闵可夫斯基距离</p>
+<p>闵氏距离不是一种距离，而是一组距离的定义。是两个向量（点）的$r$阶距离。</p>
+<a id="more"></a>
+<p>$d(x,y)=(\sum_{k=1}^{n}\left | x_{k}-y_{k} \right |^r)^\frac{1}{r}$</p>
+<p>$r$为参数</p>
+<p>当$r$ = 1时，城市街区（曼哈顿）距离（$L_{1}$范数）。</p>
+<p>当$r$ = 2 时，即欧几里得距离（$L_{2}$范数）。</p>
+<p>当$r$ = $\infty$时，上确界距离（$L_{max}$,$L_{\infty}$范数）。是对象属性之间的最大距离。</p>
+<p>（1）非负性（2）对称性（3）三角不等式</p>
+</li>
+<li><p>余弦相似度</p>
+<p>$cos(x,y)=\frac{x\cdot y}{\left | x \right |\left | y \right |}$</p>
+<p>余弦相似度的取值为[-1,1]，值越大表示越相似。</p>
+<p>常用于文档相似度。</p>
+</li>
+<li><p>Jaccard</p>
+<p>4.1 Jaccard系数</p>
+<p>$J = \frac{匹配的个数}{不涉及0-0匹配的属性个数}=\frac{f_{11}}{f_{01}+f_{10}+f_{11}}$</p>
+<p>4.2 广义Jaccard系数</p>
+<p>$EJ(x,y)=\frac{x\cdot y}{\left | x \right |^2+\left | y \right |^2-x\cdot y}$</p>
+<p>Jaccard系数值越大，样本相似度越高</p>
+</li>
+<li><p>皮尔森相关</p>
+<p>$corr(x,y)=\frac{S_{xy}}{S_xS_y}$</p>
+<p>$S_{xy}=\frac{1}{n-1}\sum_{k=1}^{n}(x-\overline{x})(y-\overline{y})$</p>
+<p>$S_x=\sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(x-\overline{x})^2}$</p>
+<p>$S_y=\sqrt{\frac{1}{n-1}\sum_{k=1}^{n}(y-\overline{y})^2}$</p>
+<p>用来反映两个变量X和Y的线性相关程度，$r$ 值介于-1到1之间，绝对值越大表明相关性越强。</p>
+<p>当$r$ &gt; 0时，表明两个变量正相关，即一个变量值越大则另一个变量值也会越大；</p>
+<p>当$r$ &lt; 0时，表明两个变量负相关，即一个变量值越大则另一个变量值反而会越小；</p>
+<p>当$r$ = 0时，表明两个变量不是线性相关的（注意只是非线性相关），但是可能存在其他方式的相关性（比如曲线方式）；</p>
+<p>当$r$ = 1和-1时，意味着两个变量X和Y可以很好的由直线方程来描述，所有样本点都很好的落在一条直线上。</p>
+</li>
+</ol>
 
       
     </div>
@@ -344,6 +375,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
 
       
       
@@ -353,14 +390,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/24/一元线性最小二乘法/" rel="next" title="一元线性最小二乘法">
+                <i class="fa fa-chevron-left"></i> 一元线性最小二乘法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/Swiss-roll-降维/" rel="prev" title="Swiss-roll 降维">
-                Swiss-roll 降维 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/25/深度学习中的线性代数/" rel="prev" title="深度学习中的线性代数">
+                深度学习中的线性代数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -486,7 +527,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相似度和相异度度量"><span class="nav-number">1.</span> <span class="nav-text">相似度和相异度度量</span></a></li></ol></div>
             
 
           </div>
