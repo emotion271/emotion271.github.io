@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="PAT,二分,hash,">
+  <meta name="keywords" content="PAT,模拟,">
 
 
 
@@ -79,21 +79,18 @@
 
 
 
-<meta name="description" content="题目：A1048 Find Coins">
-<meta name="keywords" content="PAT,二分,hash">
+<meta name="description" content="题目：A1060 Are They Equal If  a machine can save only $3$ significant digits, the float numbers $12300$  and $12358.9$ are considered equal since they are both saved as $0.123 \times 10^5$  with simple">
+<meta name="keywords" content="PAT,模拟">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT A1048 Find Coins">
-<meta property="og:url" content="http://yoursite.com/2019/03/30/PAT-A1048-Find-Coins/index.html">
+<meta property="og:title" content="PAT A1060 Are They Equal">
+<meta property="og:url" content="http://yoursite.com/2019/04/28/PAT-A1060-Are-They-Equal/index.html">
 <meta property="og:site_name" content="Emotion&#39;s blog">
-<meta property="og:description" content="题目：A1048 Find Coins">
+<meta property="og:description" content="题目：A1060 Are They Equal If  a machine can save only $3$ significant digits, the float numbers $12300$  and $12358.9$ are considered equal since they are both saved as $0.123 \times 10^5$  with simple">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/30/PAT-A1048-Find-Coins/A1048_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/30/PAT-A1048-Find-Coins/A1048_2.png">
-<meta property="og:updated_time" content="2019-03-30T10:07:52.501Z">
+<meta property="og:updated_time" content="2019-04-28T14:27:58.003Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PAT A1048 Find Coins">
-<meta name="twitter:description" content="题目：A1048 Find Coins">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/30/PAT-A1048-Find-Coins/A1048_1.png">
+<meta name="twitter:title" content="PAT A1060 Are They Equal">
+<meta name="twitter:description" content="题目：A1060 Are They Equal If  a machine can save only $3$ significant digits, the float numbers $12300$  and $12358.9$ are considered equal since they are both saved as $0.123 \times 10^5$  with simple">
 
 
 
@@ -123,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/30/PAT-A1048-Find-Coins/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/28/PAT-A1060-Are-They-Equal/">
 
 
 
 
 
-  <title>PAT A1048 Find Coins | Emotion's blog</title>
+  <title>PAT A1060 Are They Equal | Emotion's blog</title>
   
 
 
@@ -246,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/30/PAT-A1048-Find-Coins/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/PAT-A1060-Are-They-Equal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qianlai Qiu">
@@ -263,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PAT A1048 Find Coins</h1>
+          <h1 class="post-title" itemprop="name headline">PAT A1060 Are They Equal</h1>
         
 
         <div class="post-meta">
@@ -275,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-30T17:36:42+08:00">
-                2019-03-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-28T22:10:05+08:00">
+                2019-04-28
               </time>
             
 
@@ -293,7 +290,7 @@
 
           
           
-             <span id="/2019/03/30/PAT-A1048-Find-Coins/" class="leancloud_visitors" data-flag-title="PAT A1048 Find Coins">
+             <span id="/2019/04/28/PAT-A1060-Are-They-Equal/" class="leancloud_visitors" data-flag-title="PAT A1060 Are They Equal">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -324,20 +321,22 @@
       
 
       
-        <p><strong>题目</strong>：<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805432256675840" target="_blank" rel="noopener">A1048 Find Coins</a></p>
-<p><img src="/2019/03/30/PAT-A1048-Find-Coins/A1048_1.png" alt="A1048_1"></p>
+        <p><strong>题目</strong>：<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805413520719872" target="_blank" rel="noopener">A1060 Are They Equal</a></p>
+<p>If  a machine can save only $3$ significant digits, the float numbers $12300$  and $12358.9$ are considered equal since they are both saved as $0.123 \times 10^5$  with simple chopping. Now given the number of significant digits on a  machine and two float numbers, you are supposed to tell if they are  treated equal in that machine.</p>
+<h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case which gives three numbers $N$, $A$ and $B$, where $N (&lt;100)$ is the number of significant digits, and $A$ and $B$ are the two float numbers to be compared. Each float number is non-negative, no greater than $10^{100}$, and that its total digit number is less than $100$.</p>
+<h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, print in a line <code>YES</code> if the two numbers are treated equal, and then the number in the standard form <code>0.d[1]...d[N]*10^k</code> (<code>d[1]</code>&gt;0 unless the number is 0); or <code>NO</code>  if they are not treated equal, and then the two numbers in their  standard form. All the terms must be separated by a space, with no extra  space at the end of a line.</p>
+<p>Note: Simple chopping is assumed without rounding.</p>
 <a id="more"></a>
-<p><img src="/2019/03/30/PAT-A1048-Find-Coins/A1048_2.png" alt="A1048_2"></p>
+<h3 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1:"></a>Sample Input 1:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 12300 12358.9</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1:"></a>Sample Output 1:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">YES 0.123*10^5</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2:"></a>Sample Input 2:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 120 128</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2:"></a>Sample Output 2:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NO 0.120*10^3 0.128*10^3</span><br></pre></td></tr></table></figure>
 <p><strong>题意</strong>：</p>
-<p>&emsp;&emsp;找两个数$V_1,V_2$使得$V1+V2==M$,如果满足条件的有多个，则输出$V_1​$最小时的两数，如果不存在，则输出<code>No Solution</code>。</p>
-<p><strong>思路1</strong>：</p>
-<p>&emsp;&emsp;先对数组进行排序，然后遍历，二分查找$M-V_1$是否存在。</p>
+<p>&emsp;&emsp;将数装换成<code>0.d[1]...d[N]*10^k</code>的格式后判断数$A​$和$B​$是否相等，其中$N​$表示有效数字的个数。装换过程中不考虑四舍五入。</p>
+<p><strong>思路</strong>：</p>
+<p>&emsp;&emsp;按题意对数$A$和$B$进行转化。开始还觉得挺简单的，只要直接记录有效数字个数就行了，大于$N$就取到$N$位置，不够的话在后面添0就好了。这样试了很多次都没有过，才发现还有前导0的问题。所以就要先去掉前导0。还有0.0001这种小数点后有0的情况。这题题意真的太迷了，不断试错才过。。然后代码就写得有点乱了。。</p>
 <p><strong>代码</strong>：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,x;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">        v.push_back(x);</span><br><span class="line">    &#125;</span><br><span class="line">    sort(v.begin(),v.end());</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> it=v.begin();it!=v.end();it++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator s=lower_bound(it+<span class="number">1</span>,v.end(),m-(*it));</span><br><span class="line">        <span class="keyword">if</span>(*s+*it==m&amp;&amp;s!=v.end())</span><br><span class="line">        &#123;   <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,*it,*s);<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"No Solution\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>思路2</strong>：</p>
-<p>&emsp;&emsp;这题还可以用$hash$来做，即用$ha[]$记录每个数$V_i$出现的次数。然后只要验证$ha[i]和ha[m-i]$是否都存在就可以了，特别注意$i==m-i$的情况而且每个数应该$&lt;=500$。</p>
-<p><strong>代码</strong>：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,x;</span><br><span class="line"><span class="keyword">int</span> ha[<span class="number">510</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(ha,<span class="number">0</span>,<span class="keyword">sizeof</span>(ha));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">        ha[x]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">500</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(ha[i]&amp;&amp;ha[m-i]&amp;&amp;m-i&lt;=<span class="number">500</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i==m-i&amp;&amp;ha[i]&gt;=<span class="number">2</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,i,m-i);<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(i!=m-i)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,i,m-i);<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"No Solution\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">char</span> a[<span class="number">110</span>],b[<span class="number">110</span>];</span><br><span class="line"><span class="keyword">int</span> pa,pb;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">out</span><span class="params">(<span class="keyword">char</span> *s,<span class="keyword">int</span> l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"0."</span>);</span><br><span class="line">    <span class="keyword">int</span> ll=l;</span><br><span class="line">    <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(s[l]==<span class="string">'.'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        l++;</span><br><span class="line">        <span class="keyword">while</span>(s[l]==<span class="string">'0'</span>) l++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;cnt&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(l+i&lt;len)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[l+i]==<span class="string">'.'</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>,s[l+i]);</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"0"</span>);</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> k=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(s[ll]==<span class="string">'.'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ll++;</span><br><span class="line">        <span class="keyword">while</span>(s[ll]==<span class="string">'0'</span>) k--,ll++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=ll;i&lt;len;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'.'</span>) <span class="keyword">break</span>;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"*10^%d"</span>,k);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%s%s"</span>,&amp;n,a,b);</span><br><span class="line">    pa=<span class="number">0</span>;pb=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(a[pa]==<span class="string">'0'</span>) pa++;</span><br><span class="line">    <span class="keyword">while</span>(b[pb]==<span class="string">'0'</span>) pb++;</span><br><span class="line">    <span class="keyword">int</span> ppa=pa;</span><br><span class="line">    <span class="keyword">int</span> ppb=pb;</span><br><span class="line">    <span class="keyword">if</span>(a[pa]==<span class="string">'.'</span>&amp;&amp;b[pb]==<span class="string">'.'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        pa++;pb++;</span><br><span class="line">        <span class="keyword">while</span>(a[pa]==<span class="string">'0'</span>&amp;&amp;b[pb]==<span class="string">'0'</span>) pa++,pb++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> flag=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;cnt&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[pa+i]==<span class="string">'\0'</span>||b[pb+i]==<span class="string">'\0'</span>) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[pa+i]==<span class="string">'.'</span>&amp;&amp;b[pb+i]==<span class="string">'.'</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[pa+i]!=b[pb+i])</span><br><span class="line">        &#123;</span><br><span class="line">            flag=<span class="number">0</span>;<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"YES "</span>);</span><br><span class="line">        out(a,ppa);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"NO "</span>);</span><br><span class="line">        out(a,ppa);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        out(b,ppb);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -357,9 +356,7 @@
           
             <a href="/tags/PAT/" rel="tag"># PAT</a>
           
-            <a href="/tags/二分/" rel="tag"># 二分</a>
-          
-            <a href="/tags/hash/" rel="tag"># hash</a>
+            <a href="/tags/模拟/" rel="tag"># 模拟</a>
           
         </div>
       
@@ -372,8 +369,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/30/PAT-A1047-Student-List-for-Course/" rel="next" title="PAT A1047 Student List for Course">
-                <i class="fa fa-chevron-left"></i> PAT A1047 Student List for Course
+              <a href="/2019/04/28/PAT-A1059-Prime-Factors/" rel="next" title="PAT A1059 Prime Factors">
+                <i class="fa fa-chevron-left"></i> PAT A1059 Prime Factors
               </a>
             
           </div>
@@ -381,10 +378,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/31/PAT-A1049-Counting-Ones/" rel="prev" title="PAT A1049 Counting Ones">
-                PAT A1049 Counting Ones <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -436,8 +429,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -490,6 +492,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-Specification"><span class="nav-number">1.</span> <span class="nav-text">Input Specification:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-Specification"><span class="nav-number">2.</span> <span class="nav-text">Output Specification:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sample-Input-1"><span class="nav-number">3.</span> <span class="nav-text">Sample Input 1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sample-Output-1"><span class="nav-number">4.</span> <span class="nav-text">Sample Output 1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sample-Input-2"><span class="nav-number">5.</span> <span class="nav-text">Sample Input 2:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sample-Output-2"><span class="nav-number">6.</span> <span class="nav-text">Sample Output 2:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
