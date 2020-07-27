@@ -1,25 +1,928 @@
-extends includes/layout.pug
+<!DOCTYPE html>
 
-block content
-  article#post(class="")
-    #article-container.post-content!=page.content
-    include includes/post/post-copyright.pug
-    .tag_share
-      if (theme.post_meta.post.tags)
-        .post-meta__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__tags #[=item.name]
-      !=partial('includes/share/index', {}, {cache:theme.fragment_cache})
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="深度学习,线性代数,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="深度学习中的线性代数知识​        介绍深度学习需要使用的线性代数知识，帮助理解深度学习的内容。其实有好多都是已经学过的，但之前没有做一些整理。所以写这篇文章对线性代数知识做一番整理并温故知新。内容根据《Deep Learning》一书并加以补充。">
+<meta name="keywords" content="深度学习,线性代数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习中的线性代数">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/深度学习中的线性代数/index.html">
+<meta property="og:site_name" content="Emotion&#39;s blog">
+<meta property="og:description" content="深度学习中的线性代数知识​        介绍深度学习需要使用的线性代数知识，帮助理解深度学习的内容。其实有好多都是已经学过的，但之前没有做一些整理。所以写这篇文章对线性代数知识做一番整理并温故知新。内容根据《Deep Learning》一书并加以补充。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-25T14:04:09.585Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深度学习中的线性代数">
+<meta name="twitter:description" content="深度学习中的线性代数知识​        介绍深度学习需要使用的线性代数知识，帮助理解深度学习的内容。其实有好多都是已经学过的，但之前没有做一些整理。所以写这篇文章对线性代数知识做一番整理并温故知新。内容根据《Deep Learning》一书并加以补充。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/25/深度学习中的线性代数/">
+
+
+
+
+
+  <title>深度学习中的线性代数 | Emotion's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Emotion's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
         
-    if theme.reward.enable
-      !=partial('includes/post/reward', {}, {cache:theme.fragment_cache})
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
 
-    //- ad
-    if theme.ad && theme.ad.post
-      .post-ad!=theme.ad.post
+      
+    </ul>
+  
 
-    include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
-    if page.comments !== false
-      include includes/comments/index.pug
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/深度学习中的线性代数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qianlai Qiu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emotion's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">深度学习中的线性代数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T22:02:29+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/25/深度学习中的线性代数/" class="leancloud_visitors" data-flag-title="深度学习中的线性代数">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="深度学习中的线性代数知识"><a href="#深度学习中的线性代数知识" class="headerlink" title="深度学习中的线性代数知识"></a>深度学习中的线性代数知识</h1><p>​        介绍深度学习需要使用的线性代数知识，帮助理解深度学习的内容。其实有好多都是已经学过的，但之前没有做一些整理。所以写这篇文章对线性代数知识做一番整理并温故知新。内容根据《Deep Learning》一书并加以补充。</p>
+<a id="more"></a>
+<h2 id="矩阵加法"><a href="#矩阵加法" class="headerlink" title="矩阵加法"></a>矩阵加法</h2><ol>
+<li><p>矩阵与矩阵相加</p>
+<p>$C_{i,j}=A_{i,j}+B_{i,j}$</p>
+</li>
+<li><p>标量与矩阵相加，相乘</p>
+<p>$D_{i,j}=a\cdot B_{i,j}+c$</p>
+</li>
+<li><p>矩阵和向量相加</p>
+<p>在深度学习中，允许矩阵与向量相加，产生另一个矩阵</p>
+<p>$C_{i,j}=A_{i,j}+b_{j}$</p>
+<p>这种隐式地复制向量$b$到很多位置的方式，称为<strong>广播</strong>。</p>
+</li>
+</ol>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a =  [[ <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>]</span><br><span class="line"> [ <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>]</span><br><span class="line"> [ <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span>]]</span><br><span class="line"> b =  [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>]</span><br><span class="line"> a+b =  [[ <span class="number">2</span>  <span class="number">4</span>  <span class="number">6</span>  <span class="number">8</span>]</span><br><span class="line"> [ <span class="number">6</span>  <span class="number">8</span> <span class="number">10</span> <span class="number">12</span>]</span><br><span class="line"> [<span class="number">10</span> <span class="number">12</span> <span class="number">14</span> <span class="number">16</span>]]</span><br></pre></td></tr></table></figure>
+<h2 id="矩阵和向量相乘"><a href="#矩阵和向量相乘" class="headerlink" title="矩阵和向量相乘"></a>矩阵和向量相乘</h2><p>$C_{i, j}=\sum_{k}A_{i ,k}B_{k,j}$</p>
+<p>如果<strong>A</strong>的形状为$m<em>n$ ，<strong>B</strong>的形状为$n</em>p$，那么<strong>C</strong>的形状为$m*p$</p>
+<p>矩阵乘积服从分配律：$A(B+C)=AB+AC$</p>
+<p>矩阵乘积服从结合律： $A(BC)=(AB)C$</p>
+<p>但矩阵乘积<strong>并不</strong>满足交换律，但向量的点积满足交换律：$x^{T}y=y^{T}x$</p>
+<p>矩阵乘积的转置：$(AB)^{T}=B^{T}A^{T}$</p>
+<p>线性方程组的表达：$Ax=b$</p>
+<p>即 $A_{1,1}x_{1}+A_{1,2}x_{2}+…+A_{1,n}x_{n}=b_{1}$</p>
+<p>​    $A_{2,1}x_{1}+A_{2,2}x_{2}+…+A_{2,n}x_{n}=b_{2}$</p>
+<p>​                                 …</p>
+<p>​    $A_{m,1}x_{1}+A_{m,2}x_{2}+…+A_{m,n}x_{n}=b_{m}$</p>
+<h2 id="单位矩阵和逆矩阵"><a href="#单位矩阵和逆矩阵" class="headerlink" title="单位矩阵和逆矩阵"></a>单位矩阵和逆矩阵</h2><p>将保持n维向量不变的单位矩阵记作$I_{n}$。</p>
+<p>$\forall x \epsilon  \mathbb{R}^n,I_{n}x=x$</p>
+<p>单位矩阵的所有沿主对角线的元素都是1，而其他位置的所有元素都为0。如：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+1& 0 & 0\\
+ 0& 1 & 0\\ 
+0& 0 & 1
+\end{bmatrix}</script><p>矩阵<strong>A</strong>的逆矩阵记作$A^{-1}$,满足$A^{-1}A=I_{n}$</p>
+<script type="math/tex; mode=display">
+解线性方程组\\
+Ax=b\\
+A^{-1}Ax=A^{-1}b\\
+I_{n}=A^{-1}b\\
+x=A^{-1}b\\</script><h2 id="线性相关和生成子空间"><a href="#线性相关和生成子空间" class="headerlink" title="线性相关和生成子空间"></a>线性相关和生成子空间</h2><p>这一部分因为自己无法很好总结，所以先引用《深度学习》原文。</p>
+<p>​        如果逆矩阵$A^{−1}$存在，那么式$Ax=b$肯定对于每一个向量b恰好存在一个解。但是，对于方程组而言，对于向量b的某些值，有可能不存在解，或者存在无限多个解。存在多于一个解但是少于无限多个解的情况是不可能发生的；因为如果x和y都是某方程组的解，则 </p>
+<script type="math/tex; mode=display">
+z = \alpha x+(1-\alpha)y</script><p>其中a取任意实数）也是该方程组的解。</p>
+<p>​        为了分析方程有多少个解，我们可以将A的列向量看作是从<strong>原点</strong>(origin)(元素都是零的向量)出发的不同方向，确定有多少种方法可以到达向量b。在这个观点下，向量x中的每个元素表示我们应该沿着这些方向走多远，即xi表示我们需要沿着第i个向量的方向走多远： </p>
+<script type="math/tex; mode=display">
+Ax=\sum _{i} x_{i}A_{:, i}</script><p>​        一般而言，这种操作被称为<strong>线性组合</strong>(linear combination)。形式上，一组向量的线性组合，是指每个向量乘以对应标量系数之后的和，即：</p>
+<script type="math/tex; mode=display">
+\sum _{i} c_{i}v^{(i)}</script><p>一组向量的<strong>生成子空间</strong>(span)是原始向量线性组合后所能抵达的点的集合。</p>
+<p>​        确定$Ax=b$是否有解相当于确定向量$b$是否在<strong>A</strong>列向量的生成子空间中。这个特殊的生成子空间被称为<strong>A</strong>的<strong>列空间</strong>(column space)或者<strong>A</strong>的<strong>值域</strong>(range)。 </p>
+<p>​    为了使方程$Ax=b$对于任意向量$b\epsilon \mathbb{R}^m$都存在解，我们要求<strong>A</strong>的列空间构成整个$\mathbb{R}^m$。如果$\mathbb{R}^m$中的某个点不在<strong>A</strong>的列空间中，那么该点对应的$b$会使得该方程没有解。矩阵<strong>A</strong>的列空间是整个$\mathbb{R}^m$的要求，意味着<strong>A</strong>至少有$m$列，即$n≥m$。否则，<strong>A</strong>列空间的维数会小于$m$。例如，假设<strong>A</strong>是一个$3×2$的矩阵。目标$b$是$3$维的，但是$x$只有$2$维。所以无论如何修改$x$的值，也只能描绘出$\mathbb{R}^3$空间中的二维平面。当且仅当向量$b$在该二维平面中时，该方程有解。</p>
+<p>​    不等式$n≥m$仅是方程对每一点都有解的必要条件。这不是一个充分条件，因为有些列向量可能是冗余的。假设有一个$\mathbb{R}^{2*2}$中的矩阵，它的两个列向量是相同的。那么它的列空间和它的一个列向量作为矩阵的列空间是一样的。换言之，虽然该矩阵有$2$列，但是它的列空间仍然只是一条线，不能涵盖整个$\mathbb{R}^2$空间。 </p>
+<p>​    正式地说，这种冗余被称为<strong>线性相关</strong>(linear dependence)。如果一组向量中的任意一个向量都不能表示成其他向量的线性组合，那么这组向量被称为<strong>线性无关</strong>(linearly independent)。如果某个向量是一组向量中某些向量的线性组合，那么我们将这个向量加入到这组向量后不会增加这组向量的生成子空间。这意味着，如果一个矩阵的列空间涵盖整个$\mathbb{R}^m$，那么该矩阵必须包含至少一组$m$个线性无关的向量。这是式$Ax=b$对于每一个向量$b$的取值都有解的充分必要条件。值得注意的是，这个条件是说该向量恰好有$m$个线性无关的列向量，而不是至少$m$个。不存在一个$m$维向量的集合具有多于$m$个彼此线性不相关的列向量，但是一个有多于$m$个列向量的矩阵却有可能拥有不止一个大小为$m$的线性无关向量集。</p>
+<p>​     综上所述，这意味着该矩阵必须是一个<strong>方阵</strong>(square)，即$m=n$，并且所有列向量都是线性无关的。一个列向量线性相关的方阵被称为<strong>奇异的</strong>(singular) </p>
+<p>​    目前为止，我们已经讨论了逆矩阵左乘。我们也可以定义逆矩阵右乘： </p>
+<script type="math/tex; mode=display">
+AA^{-1}=I</script><p>对于方阵而言，它的左逆和右逆是相等的。</p>
+<h2 id="范数"><a href="#范数" class="headerlink" title="范数"></a>范数</h2><p>范数，来衡量向量大小。$L^{p}$范数：</p>
+<script type="math/tex; mode=display">
+\left \| x \right \|_{p}=(\sum_{i} \left| x_{i} \right|^{p})^{\frac{1}{p}}</script><p>其中$p\epsilon \mathbb{R},p\geq 1$</p>
+<p>范数是满足下列性质的任意函数</p>
+<ul>
+<li>$f(x)=0\Rightarrow x=0$</li>
+<li>$f(x+y)\leqslant f(x)+f(y)$</li>
+<li>$\forall \alpha \epsilon \mathbb{R},f(\alpha x)=\left | \alpha  \right |f(x)$</li>
+</ul>
+<p>常用的为$L_{1}$,$L_{2}$范数</p>
+<p>$L_{\infty}$范数(最大范数) </p>
+<script type="math/tex; mode=display">
+\left \| x \right \|_{\infty}=\max_{i}\left | x_{i} \right |</script><p>$Frobenius$范数，可用来衡量矩阵的大小</p>
+<script type="math/tex; mode=display">
+\left \| A \right \|_{F}=\sqrt{\sum _{i,j}A_{i,j}^{2}}</script><h2 id="特殊类型的矩阵和向量"><a href="#特殊类型的矩阵和向量" class="headerlink" title="特殊类型的矩阵和向量"></a>特殊类型的矩阵和向量</h2><p><strong>对角矩阵</strong>  只在主对角线上含有非零元素，其他位置都为零。可表示为$diag(v)$</p>
+<p>*并非所有的对角矩阵都是方阵。</p>
+<p><strong>对阵矩阵</strong>  $A=A^T$</p>
+<p><strong>单位矩阵</strong>  $\left | x \right |_2=1$</p>
+<p><strong>正交矩阵</strong>  $A^T A=AA^T=I$   $A^{-1}=A^T$</p>
+<p><strong>reference:</strong></p>
+<p>《深度学习》</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/线性代数/" rel="tag"># 线性代数</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/25/相似度相异度度量/" rel="next" title="相似度相异度度量">
+                <i class="fa fa-chevron-left"></i> 相似度相异度度量
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/25/朴素贝叶斯文档分类/" rel="prev" title="朴素贝叶斯文档分类">
+                朴素贝叶斯文档分类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="Qianlai Qiu">
+            
+              <p class="site-author-name" itemprop="name">Qianlai Qiu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#深度学习中的线性代数知识"><span class="nav-number">1.</span> <span class="nav-text">深度学习中的线性代数知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵加法"><span class="nav-number">1.1.</span> <span class="nav-text">矩阵加法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵和向量相乘"><span class="nav-number">1.2.</span> <span class="nav-text">矩阵和向量相乘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单位矩阵和逆矩阵"><span class="nav-number">1.3.</span> <span class="nav-text">单位矩阵和逆矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性相关和生成子空间"><span class="nav-number">1.4.</span> <span class="nav-text">线性相关和生成子空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范数"><span class="nav-number">1.5.</span> <span class="nav-text">范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊类型的矩阵和向量"><span class="nav-number">1.6.</span> <span class="nav-text">特殊类型的矩阵和向量</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+      
+      <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+        <div class="widget-wrap">
+         <h3 class="widget-title">Tag Cloud</h3>
+          <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width=100%">
+              <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCS/">LCS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LIS/">LIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PAT/">PAT</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分/">二分</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/云计算/">云计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数位DP/">数位DP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树状数组/">树状数组</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模拟/">模拟</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深度学习/">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/素数筛/">素数筛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性代数/">线性代数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性回归/">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贝叶斯/">贝叶斯</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/降维/">降维</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
+            </canvas>
+          </div>
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qianlai Qiu</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("2x19pTqxJeqHMR8f5QSaW969-gzGzoHsz", "7KGrUgWwWaVUPefYmrpV8akn");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
